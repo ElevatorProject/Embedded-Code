@@ -10,6 +10,11 @@
 #define MSG_F2 0x06 //0x06 goto floor2
 #define MSG_F3 0x07 //0x07 goto floor3
 
+#define LED_FLOOR1 0b00000001 // active low led floor 1 on
+#define LED_FLOOR2 0b00000010 // active low led floor 2 on
+#define LED_FLOOR3 0b00000100 // active low led floor 3 on
+#define LED_OFF    0b00000000 //turns all LEDS off
+
 #define MSG_GOTO_CURRENT_FLOOR 0x01 // goto the floor specified by msg_id
 
 void init_gpio(void);
