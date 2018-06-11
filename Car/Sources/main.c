@@ -33,6 +33,9 @@ void main(void) {
         case 3:
             floor_msg = MSG_F3;
         break;
+        case 4:
+            floor_msg = MSG_OPEN;
+        break;
         default:
             continue;            
         break;

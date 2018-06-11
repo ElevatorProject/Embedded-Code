@@ -8,6 +8,7 @@
 #define MSG_F1 0x05 //0x05 goto floor1
 #define MSG_F2 0x06 //0x06 goto floor2
 #define MSG_F3 0x07 //0x07 goto floor3
+#define MSG_OPEN 0x08 // hold door open
 
 #define LED_FLOOR1 0b00000001 // active low led floor 1 on
 #define LED_FLOOR2 0b00000010 // active low led floor 2 on
