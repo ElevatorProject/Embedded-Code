@@ -13,10 +13,6 @@
 #define BTN_2 0b00000010
 #define BTN_3 0b00000100
 
-#define LED_FLOOR1 0b11111110 // active low led floor 1 on
-#define LED_FLOOR2 0b11111101 // active low led floor 2 on
-#define LED_FLOOR3 0b11111011 // active low led floor 3 on
-
 #define HELD 1
 #define NOT_HELD 0
 

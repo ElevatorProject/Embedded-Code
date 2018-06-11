@@ -4,7 +4,7 @@
 #include "derivative.h"           // derivative-specific definitions
 #include <stdlib.h>
 #include "CAN.h"
-
+#include "FloorControl.h"
 
 // Code adapted from AN3034
 
@@ -93,7 +93,7 @@ unsigned char CANTx(unsigned long id, unsigned char priority, unsigned char leng
 // the module available to receive further messages 
 // ******************************************************************
 
-void interrupt CANRxISR(void) {
+interrupt VectorNumber_Vcanrx void CANRxISR(void) {
   unsigned char length, index;
   unsigned char rxdata[8]; 
   
@@ -101,7 +101,20 @@ void interrupt CANRxISR(void) {
   for (index=0; index < length; index++) {
     rxdata[index] = *(&CANRXDSR0 + index);   // Get received data  
   }
-  
+  switch (rxdata[0])
+  {
+    case MSG_F1:
+        PORTA = LED_FLOOR1;
+    break;
+    case MSG_F2:
+        PORTA = LED_FLOOR2;
+    break;
+    case MSG_F3:
+        PORTA = LED_FLOOR3;
+    break;
+    default:
+        PORTA = 0b00000101;
+  }
   CANRFLG |= 0x01;                            // Clear the received flag RXF and check for NEW messages - resets the interrupt
   
 }
